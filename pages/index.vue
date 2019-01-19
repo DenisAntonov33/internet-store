@@ -102,6 +102,10 @@ h2 {
   margin-bottom: 15px;
 }
 
+.item {
+  height: 360px;
+}
+
 @media screen and (max-width: 425px) {
   .column.is-half-mobile {
     flex: none;

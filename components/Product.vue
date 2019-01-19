@@ -1,24 +1,26 @@
 <template>
-  <div class="wraper">
-    <figure class="image item__image is-128x128">
-      <img src="https://bulma.io/images/placeholders/128x128.png" alt>
-      <!-- <span class="special-placeholder">
-        <span v-if="product.tags.is_sale" class="special sale">Sale!</span>
-        <span v-if="!isProductAvaliable(product)" class="special disabled">Не доступен</span>
-        <span v-if="product.tags.is_new" class="special new">New!</span>
-      </span>-->
-    </figure>
-    <div class="item__text-wraper">
-      <h3 class="media-left">{{product.name}}</h3>
-      <span>{{product.description}}</span>
+  <div>
+    <div class="wraper">
+      <figure class="image item__image is-128x128">
+        <img src="https://bulma.io/images/placeholders/128x128.png" alt>
+        <!-- <span class="special-placeholder">
+          <span v-if="product.tags.is_sale" class="special sale">Sale!</span>
+          <span v-if="!isProductAvaliable(product)" class="special disabled">Не доступен</span>
+          <span v-if="product.tags.is_new" class="special new">New!</span>
+        </span>-->
+      </figure>
+      <div class="item__text-wraper">
+        <h3 class="media-left">{{product.name}}</h3>
+        <div class="item__description">{{product.description}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, culpa veniam doloribus possimus. Magnam beatae vero minima, blanditiis voluptates excepturi eligendi at iure maxime quas. Voluptate iusto beatae excepturi aliquid?</div>
+      </div>
+      <div>{{product.price}}</div>
+      <button
+        v-on:click="addToCart(product)"
+        v-if="isProductAvaliable(product)"
+        class="button media-conent"
+      >Добавить</button>
+      <button v-on:click="addToCart(product)" v-else disabled class="button media-conent">Добавить</button>
     </div>
-    <div>{{product.price}}</div>
-    <button
-      v-on:click="addToCart(product)"
-      v-if="isProductAvaliable(product)"
-      class="button media-conent"
-    >Добавить</button>
-    <button v-on:click="addToCart(product)" v-else disabled class="button media-conent">Добавить</button>
   </div>
 </template>
 
@@ -55,7 +57,9 @@ export default {
 
 .item h3 {
   align-self: flex-start;
-  font-size: 26px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
 }
 
 .item__image {
@@ -99,12 +103,19 @@ export default {
   padding: 0 20px 0 20px;
 }
 
+.item__description {
+  height: 55px;
+  overflow: hidden;
+}
+
 .wraper {
   align-items: center;
   border: 2px solid aqua;
   display: flex;
   flex-direction: column;
+  min-height: 350px;
   height: 100%;
+  justify-content: space-around;
   max-width: 100%;
   padding: 5px;
 }
